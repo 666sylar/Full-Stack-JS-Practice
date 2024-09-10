@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;    
+    text-align: center;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {    
+    background-image: url("./../../static/image/shell.jpg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: lightyellow;
+    align-content: center;
+    height: 100%;
+    color: #926239;      
+}
+
+h1 {    
+    font-size: 100px;
+}
+
+p {    
+    font-size: 20px;
+    padding: 25px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #926239;
+    border: 1px solid #926239;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 20px;
+}
+
+a:hover {
+    background-color: #926239;
+    color: lightyellow;    
+}
+
+section {
+    background-color: #926239;
+    color: lightyellow;
+    font-size: 0;    
+}
+
+.inverted {
+    background-color: lightyellow;
+    color: #926239;        
+}
+
+.block {    
+    display: inline-block;
+    width: calc(100% / 3);    
+}
