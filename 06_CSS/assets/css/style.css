@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  background-color: burlywood;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+article {
+  min-width: 25rem;
+  max-width: 35rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: whitesmoke;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.25rem black;
+}
+
+img {
+  padding: 0.1rem;
+  height: 10rem;
+  width: 10rem;
+  background-color: khaki;
+  border: 0.1rem solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0.25rem gray;
+}
+
+.card-content {
+  padding: 0.5rem;
+}
+
+h2 {
+  padding: 0.1rem;
+}
+
+p {
+  padding: 0.1rem;
+}
+
+.buttons {
+  padding-top: 0.25rem;
+}
+
+button {
+  background-color: cornflowerblue;
+  color: whitesmoke;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0.1rem 0.1rem 0.1rem gray;
+}
+
+.socials {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+a {
+  padding: 0.1rem;
+  text-decoration: none;
+  color: coral;
+  font-size: 1.25rem;
+}
