@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  max-height: 40vh;
+  min-width: 320px;
+  background-color: dimgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0.25rem;
+  flex-wrap: wrap;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.nav-el {
+  margin: 0 auto;
+  padding: 0.1rem;
+  color: azure;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-el:first-of-type {
+  font-family: "Amatic SC", sans-serif;
+  font-size: 3rem;
+}
+
+.nav-el:last-of-type {
+  font-family: "Teko", sans-serif;
+  font-size: 1.5rem;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
