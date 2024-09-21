@@ -56,27 +56,25 @@ console.log("num-- -->", num);
 /*
 Запитати число у користувача, піднести його до квадрату і вивести результат.
 */
-let number = prompt("Enter number");
+let number = prompt("Enter number:");
 alert(`${number} ^ 2 = ${number ** 2}`); // number * number / Math.pow(number, 2)
 
 /*
 Вивести середнє арифметичне двох чисел. Числа запитувати у користувача.
 */
-let number1 = prompt("Enter number");
-let number2 = prompt("Enter second number");
-alert(
-  `(${number1} + ${number2}) / 2 = ${(Number(number1) + Number(number2)) / 2}`
-);
+let number1 = Number(prompt("Enter number:"));
+let number2 = Number(prompt("Enter second number:"));
+alert(`(${number1} + ${number2}) / 2 = ${(number1 + number2) / 2}`);
 
 /*
 Перевести кількість хвилин на секунди та вивести результат. Число хвилин запитувати у користувача. 
 */
-let minutes = prompt("Enter minutes");
+let minutes = prompt("Enter minutes:");
 alert(`${minutes} minutes = ${minutes * 60} seconds`);
 
 /*
 Створіть змінну greeting зі значенням 'Hello,' і оголосіть змінну userName. Запитайте ім'я користувача та внесіть це значення у змінну userName. Виведіть повідомлення з привітанням, наприклад, 'Hello, Alex!' (згадайте про конкатенацію)
 */
-let greeting = "Hello, ";
-let userName = prompt("Whats your name?");
-alert(greeting + userName + "!");
+let greeting = "Hello,";
+let userName = prompt("What's your name?");
+alert(greeting + " " + userName + "!");
