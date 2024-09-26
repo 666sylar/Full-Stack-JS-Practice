@@ -23,7 +23,7 @@ console.log(
   "3. Прийняти від користувача (за допомогою prompt) його ім’я і вивести його у модальне вікно великими літерами (‘alex’ -> ‘ALEX’)"
 );
 
-let userName = prompt("Введіть ваше ім'я: ");
+let userName = prompt("Enter your name: ");
 
 alert(userName.toUpperCase());
 
