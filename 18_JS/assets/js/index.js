@@ -9,20 +9,21 @@ btn.addEventListener("click", () => alert("Hello, clicker!"));
 2. Створити посилання з текстом “клікни, аби з’явилась кнопка”. За натиснення на посилання поряд з ним має з’явитись новий елемент - кнопка.
 */
 
-/*
+const section = document.createElement("section");
+btn.after(section);
+
 const link = document.createElement("a");
 link.href = "#";
 link.textContent = "Click to display the button";
-document.querySelector("section:nth-of-type(2)").append(link);
-const link = document.querySelector("#link");
-*/
+section.append(link);
+
 link.addEventListener(
   "click",
   (event) => {
     event.preventDefault();
     const newBtn = document.createElement("button");
     newBtn.textContent = `\u{1F9D9}`;
-    document.querySelector("section:nth-of-type(2)").append(newBtn);
+    link.after(newBtn);
   },
   { once: true }
 );
