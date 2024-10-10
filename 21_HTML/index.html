@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact form</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script defer src="./assets/js/index.js"></script>
+  </head>
+  <body>
+    <img src="static/image/ocean.png" alt="ocean" />
+
+    <form id="contact-form" novalidate>
+      <h2>Contact form</h2>
+      <p>Please fill in your information and we'll be sending your order.</p>
+
+      <div class="form-row">
+        <label for="first-name">Your name</label>
+        <div class="flex-inputs">
+          <input type="text" id="first-name" name="firstName" placeholder="first name" minlength="2" maxlength="30" />
+          <input type="text" id="last-name" name="lastName" placeholder="last name" minlength="2" maxlength="30" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" placeholder="your_mail@mail.com" />
+      </div>
+
+      <div class="form-row">
+        <label for="phone">Phone *</label>
+        <div class="flex-inputs">
+          <input type="text" id="phone1" name="phone1" pattern="\d{3}" placeholder="000" maxlength="3" required />
+          <input type="text" id="phone2" name="phone2" pattern="\d{3}" placeholder="000" maxlength="3" required />
+          <input type="text" id="phone3" name="phone3" pattern="\d{4}" placeholder="0000" maxlength="4" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="subject">Message subject *</label>
+        <select id="subject" name="subject" required>
+          <option value="Order">Order</option>
+          <option value="Support">Support</option>
+          <option value="Feedback">Feedback</option>
+          <option value="Other" selected>Other</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" maxlength="500" required></textarea>
+      </div>
+
+      <hr />
+
+      <button type="submit">SUBMIT FORM</button>
+    </form>
+  </body>
+</html>
