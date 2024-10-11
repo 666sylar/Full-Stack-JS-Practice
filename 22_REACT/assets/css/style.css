@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  height: 85vh;
+  max-height: auto;
+  text-align: center;
+  position: relative;
+}
+
+.profile-picture {
+  width: 25rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem 0.5rem 0 0;
+  object-fit: cover;
+}
+
+.user-info {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.user-info h2 {
+  font-size: 1.75rem;
+}
+
+.user-info p {
+  font-size: 1.25rem;
+}
+
+.user-stats {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+}
+
+.user-stats div {
+  text-align: center;
+}
+
+.user-stats p {
+  color: gray;
+}
+
+.follow-btn {
+  position: absolute;
+  bottom: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
