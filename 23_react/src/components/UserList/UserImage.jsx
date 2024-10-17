@@ -1,33 +1,23 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import styles from "./UserList.module.css";
 import defaultPicture from "./default.svg";
 
-class UserImage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isError: false,
-    };
-  }
+const UserImage = ({ src, alt }) => {
+  const [isError, setIsError] = useState(false);
 
-  handleImageError = () => {
-    this.setState({ isError: true });
+  const handleImageError = () => {
+    setIsError(true);
   };
 
-  render() {
-    const { isError } = this.state;
-    const { src, alt } = this.props;
-
-    return (
-      <>
-        {isError ? (
-          <div className={styles.imagePlaceholder}>No Image</div>
-        ) : (
-          <img src={src || defaultPicture} alt={alt} onError={this.handleImageError} />
-        )}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {isError ? (
+        <div className={styles.imagePlaceholder}>No Image</div>
+      ) : (
+        <img src={src || defaultPicture} alt={alt} onError={handleImageError} />
+      )}
+    </>
+  );
+};
 
 export default UserImage;
