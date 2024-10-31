@@ -1,0 +1,45 @@
+@import "../../common/style/variable"
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Londrina+Shadow&display=swap')
+
+.header
+  min-height: 5vh
+  height: 100%
+  max-height: 10vh
+  background-color: transparent
+  padding: 1.5rem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  font-family: sans-serif
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+
+  a
+    text-decoration: none
+    color: $text-color
+
+  .logo
+    font-family: "Londrina Shadow", sans-serif
+    font-weight: 400
+    font-style: normal
+    font-size: 4rem
+
+  .authorization
+    min-width: 5rem
+    width: 100%
+    max-width: 10rem
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .link
+      padding: 0.5rem 0.5rem
+      font-weight: bold
+      border: 0.1rem solid $text-color
+      border-radius: 0.25rem
+
+      &:hover
+        color: $bg-color
+        background-color: $text-color

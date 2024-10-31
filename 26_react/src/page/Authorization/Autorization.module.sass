@@ -1,0 +1,21 @@
+@import "../../common/style/template"
+.signUp, .logIn
+  @extend %base
+
+.signUpForm, .logInForm
+  @extend %form
+
+.logInForm
+  .inputSet
+    display: flex
+    flex-direction: column
+
+@media screen and (max-width: 500px)
+  .signUpForm, .logInForm
+    width: 100%
+
+  .signUpForm
+    width: 100%
+    .inputSet
+      display: flex
+      flex-direction: column
