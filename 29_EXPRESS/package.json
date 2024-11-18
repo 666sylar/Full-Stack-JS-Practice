@@ -1,0 +1,22 @@
+{
+  "name": "29_express",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "prettier-standard": "^16.4.1"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "express": "^4.21.1",
+    "http-errors": "^2.0.0",
+    "uuid": "^11.0.3",
+    "yup": "^1.4.0"
+  }
+}
