@@ -28,15 +28,13 @@ CREATE TABLE
 
 CREATE TABLE
     IF NOT EXISTS exams (
-        id_stud INT NOT NULL,
-        id_course INT NOT NULL,
+        PRIMARY KEY (id_stud, id_course),
+        id_stud INT NOT NULL REFERENCES students (id_stud) ON DELETE CASCADE,
+        id_course INT NOT NULL REFERENCES courses (id_course) ON DELETE CASCADE,
         mark NUMERIC(2, 1) CHECK (
             mark >= 0
             AND mark <= 5
-        ),
-        PRIMARY KEY (id_stud, id_course),
-        FOREIGN KEY (id_stud) REFERENCES students (id_stud) ON DELETE CASCADE,
-        FOREIGN KEY (id_course) REFERENCES courses (id_course) ON DELETE CASCADE
+        )
     );
 
 INSERT INTO
