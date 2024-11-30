@@ -13,7 +13,14 @@ customersRouter
 customersRouter
   .route('/:id')
   .get(customerControllers.getByIdCustomer)
-  .patch(customerControllers.updateByIdCustomer)
+  .patch(
+    validation.validateCustomerOnUpdate,
+    customerControllers.updateByIdCustomer
+  )
   .delete(customerControllers.deleteByIdCustomer);
+
+customersRouter
+  .route('/:id/phones')
+  .get(customerControllers.getAllPhonesByIdCustomer);
 
 module.exports = customersRouter;

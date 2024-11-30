@@ -44,16 +44,22 @@ class Customer {
     try {
       const updateQuery = `
         UPDATE customers
-        SET first_name = ${firstName}, 
-            last_name = ${lastName}, 
-            email = ${email}, 
-            tel = ${tel}
+        SET first_name = $1, 
+            last_name = $2, 
+            email = $3, 
+            tel = $4
         WHERE id = ${id}
         RETURNING *
       `;
-      const updatedCustomer = await Customer.pool.query(updateQuery);
+      const updatedCustomer = await Customer.pool.query(updateQuery, [
+        firstName,
+        lastName,
+        email,
+        tel,
+      ]);
       return updatedCustomer.rows[0];
     } catch (err) {
+      console.error('Error in SQL query:', err);
       throw new Error(err.detail);
     }
   }

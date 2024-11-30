@@ -1,4 +1,5 @@
 const { Customer } = require('./../models');
+const { Phone } = require('../models');
 
 module.exports.createCustomer = async (req, res, next) => {
   const { body } = req;
@@ -44,8 +45,69 @@ module.exports.getByIdCustomer = async (req, res, next) => {
   }
 };
 
-module.exports.updateByIdCustomer = (req, res, next) => {};
+module.exports.updateByIdCustomer = async (req, res, next) => {
+  const { id } = req.params;
 
-module.exports.deleteByIdCustomer = (req, res, next) => {};
+  try {
+    console.log('req.body:', req.body);
+    const updatedCustomer = await Customer.updateById(id, req.body);
+
+    if (!updatedCustomer) {
+      // TODO createHttpError
+      return res.status(404).send('Customer Not Found');
+    }
+
+    res.status(200).send(updatedCustomer);
+  } catch (err) {
+    console.error('Error updating customer:', err);
+    next(err);
+  }
+};
+
+module.exports.deleteByIdCustomer = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const deletedCustomer = await Customer.deleteById(id);
+
+    if (!deletedCustomer) {
+      // TODO createHttpError
+      return res.status(404).send('Customer Not Found');
+    }
+
+    res.status(204).send();
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.getAllPhonesByIdCustomer = async (req, res, next) => {
+  const { id } = req.params;
+  const { brand, startDate, endDate } = req.query;
+
+  try {
+    const conditions = [];
+    if (brand) {
+      conditions.push(`phones.brand = '${brand}'`);
+    }
+    if (startDate) {
+      conditions.push(`orders.created_at >= '${startDate}'`);
+    }
+    if (endDate) {
+      conditions.push(`orders.created_at <= '${endDate}'`);
+    }
+
+    const whereClause = conditions.length
+      ? `WHERE customers.id = ${id} AND ${conditions.join(' AND ')}`
+      : `WHERE customers.id = ${id}`;
+
+    const foundPhones = await Phone.getAllById(whereClause);
+
+    res.status(200).send(foundPhones);
+  } catch (err) {
+    // res.status(500).send('Server Error');
+    next(err);
+  }
+};
 
 // {createCustomer, ..., deleteByIdCustomer}
