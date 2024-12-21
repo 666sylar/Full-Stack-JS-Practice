@@ -1,0 +1,19 @@
+### Create a Phone for a Brand
+POST http://localhost:5555/api/brands/1/phones
+Content-Type: application/json
+
+{
+  "model": "iPhone 16",
+  "year": 2024,
+  "ram": 12,
+  "processor": "A17 Bionic",
+  "screenSize": 6.3,
+  "hasNFC": true,
+  "image": "iphone_16.jpg"
+}
+
+### Get All Brands
+GET http://localhost:5555/api/brands
+
+### Get Phones of a Specific Brand
+GET http://localhost:5555/api/brands/1/phones
