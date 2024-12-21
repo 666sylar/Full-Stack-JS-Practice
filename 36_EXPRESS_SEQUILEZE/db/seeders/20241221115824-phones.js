@@ -1,0 +1,167 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    const brands = await queryInterface.sequelize.query(
+      'SELECT id, name FROM brands;',
+      { type: Sequelize.QueryTypes.SELECT }
+    );
+
+    const brandMap = {};
+    brands.forEach(brand => {
+      brandMap[brand.name] = brand.id;
+    });
+
+    await queryInterface.bulkInsert('phones', [
+      {
+        model: 'iPhone 14',
+        year: 2023,
+        ram: 6,
+        processor: 'A16 Bionic',
+        screen_size: 6.1,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Apple'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'iPhone 13 Pro',
+        year: 2022,
+        ram: 6,
+        processor: 'A15 Bionic',
+        screen_size: 6.1,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Apple'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Galaxy S23',
+        year: 2023,
+        ram: 8,
+        processor: 'Snapdragon 8 Gen 2',
+        screen_size: 6.6,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Samsung'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Galaxy A54',
+        year: 2023,
+        ram: 6,
+        processor: 'Exynos 1380',
+        screen_size: 6.4,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Samsung'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Pixel 7',
+        year: 2023,
+        ram: 8,
+        processor: 'Google Tensor G2',
+        screen_size: 6.3,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Google'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Pixel 6a',
+        year: 2022,
+        ram: 6,
+        processor: 'Google Tensor',
+        screen_size: 6.1,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Google'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Xperia 5 V',
+        year: 2023,
+        ram: 8,
+        processor: 'Snapdragon 8 Gen 2',
+        screen_size: 6.1,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Sony'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Xperia 10 IV',
+        year: 2022,
+        ram: 6,
+        processor: 'Snapdragon 695',
+        screen_size: 6.0,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Sony'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Nokia G60',
+        year: 2023,
+        ram: 4,
+        processor: 'Snapdragon 695',
+        screen_size: 6.6,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Nokia'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Nokia X30',
+        year: 2022,
+        ram: 6,
+        processor: 'Snapdragon 695',
+        screen_size: 6.4,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Nokia'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Edge 40',
+        year: 2023,
+        ram: 8,
+        processor: 'Dimensity 8020',
+        screen_size: 6.55,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Motorola'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        model: 'Moto G73',
+        year: 2023,
+        ram: 6,
+        processor: 'Dimensity 930',
+        screen_size: 6.5,
+        has_nfc: true,
+        image: '',
+        brand_id: brandMap['Motorola'],
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+    ]);
+  },
+
+  async down (queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('phones', null, {});
+  },
+};
