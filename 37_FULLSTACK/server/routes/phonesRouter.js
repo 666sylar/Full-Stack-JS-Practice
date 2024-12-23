@@ -6,7 +6,7 @@ const phonesRouter = Router();
 
 phonesRouter
   .route('/')
-  .post(phonesController.createPhone)
+  .post(upload.uploadPhoneImage, phonesController.createPhone)
   .get(paginate.paginatePhones, phonesController.getPhones);
 
 phonesRouter

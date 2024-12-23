@@ -3,9 +3,13 @@ const _ = require('lodash');
 const { Phone, Brand } = require('../db/models');
 
 module.exports.createPhone = async (req, res, next) => {
-  const { body } = req;
+  const { body, file } = req;
 
   try {
+    if (file) {
+      body.image = file.filename;
+    }
+
     const createdPhone = await Phone.create(body);
 
     if (!createdPhone) {
