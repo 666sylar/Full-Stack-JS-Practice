@@ -42,10 +42,6 @@ module.exports.getBrands = async (req, res, next) => {
     const foundBrands = await Brand.findAll({
       raw: true,
       attributes: { exclude: ['createdAt', 'updatedAt'] },
-      include: {
-        model: Phone,
-        attributes: ['model'],
-      },
     });
 
     res.status(200).send({ data: foundBrands });
