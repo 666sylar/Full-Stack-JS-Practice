@@ -5,7 +5,7 @@ import {
   getPhonesThunk,
   deletePhoneThunk
 } from '../../store/slices/phonesSlice.js'
-/*import styles from 'PhonesList.module.sass';*/
+import styles from './PhonesList.module.sass'
 
 export const UsersList = () => {
   const { phones, isFetching, error } = useSelector(
@@ -24,14 +24,23 @@ export const UsersList = () => {
       <ul>
         {phones.map(p => (
           <li key={p.id}>
+            <div className={styles.imageWrapper}>
+              <img
+                className={styles.image}
+                src={`http://localhost:5555/images/${p.image}`}
+                alt={`${p.Brand.name} ${p.model}`}
+              />
+            </div>
+
+            <p>{p.Brand.name}</p>
+            <p>{p.model}</p>
+            <p>{p.year}</p>
+            <p>{p.screenSize}</p>
+            <p>{p.processor}</p>
+            <p>{p.ram}</p>
+            <p>{p.hasNFC}</p>
+
             <button onClick={() => dispatch(deletePhoneThunk(p.id))}>X</button>
-
-            <img
-              src={`http://localhost:5555/images/${p.image}`}
-              alt={`${p.model}`}
-            />
-
-            <p>{JSON.stringify(p)}</p>
           </li>
         ))}
       </ul>

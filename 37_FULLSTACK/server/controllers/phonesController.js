@@ -32,7 +32,6 @@ module.exports.getPhones = async (req, res, next) => {
 
   try {
     const foundPhones = await Phone.findAll({
-      raw: true,
       attributes: { exclude: ['createdAt', 'updatedAt'] },
       limit,
       offset,
