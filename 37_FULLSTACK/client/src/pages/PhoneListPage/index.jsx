@@ -4,7 +4,7 @@ import styles from './PhoneListPage.module.sass'
 function PhoneListPage () {
   return (
     <main className={styles.list}>
-      <h2>Phone List</h2>
+      <h1>Phones List</h1>
       <PhonesList />
     </main>
   )

@@ -4,7 +4,7 @@ import styles from './PhoneFormPage.module.sass'
 function PhoneFormPage () {
   return (
     <main className={styles.form}>
-      <h2>Phone Form</h2>
+      <h1>Phone Form</h1>
       <PhoneForm />
     </main>
   )
