@@ -1,21 +1,19 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { useDispatch, useSelector } from 'react-redux'
-import { createPhoneThunk } from '../../store/slices/phonesSlice'
-import { PHONE_VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas'
-import { useEffect } from 'react'
-import { getBrandsThunk } from '../../store/slices/brandsSlice'
-import styles from './PhoneForm.module.sass'
-import RingLoader from 'react-spinners/BeatLoader'
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { createPhoneThunk } from '../../store/slices/phonesSlice';
+import { PHONE_VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas';
+import { useEffect } from 'react';
+import { getBrandsThunk } from '../../store/slices/phonesSlice';
+import styles from './PhoneForm.module.sass';
+import classNames from 'classnames';
 
 function PhoneForm () {
-  const { brands, isFetching, error } = useSelector(
-    ({ brandsData }) => brandsData
-  )
-  const dispatch = useDispatch()
+  const { brands } = useSelector(({ phonesData }) => phonesData);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBrandsThunk())
-  }, [dispatch])
+    dispatch(getBrandsThunk());
+  }, [dispatch]);
 
   const initialValues = {
     model: '',
@@ -24,33 +22,33 @@ function PhoneForm () {
     processor: '',
     screenSize: '',
     hasNFC: false,
-    brandId: '',
-    phoneImage: null
-  }
+    brandId: null,
+    phoneImage: null,
+  };
 
   const handleSubmit = (values, formikBag) => {
-    const formData = new FormData()
+    const formData = new FormData();
 
-    formData.append('model', values.model)
-    formData.append('year', values.year)
-    formData.append('ram', values.ram)
-    formData.append('processor', values.processor)
-    formData.append('screenSize', values.screenSize)
-    formData.append('hasNFC', values.hasNFC)
-    formData.append('brandId', values.brandId)
-    formData.append('phoneImage', values.phoneImage)
+    Object.keys(values).forEach(key => {
+      formData.append(key, values[key]);
+    });
 
-    dispatch(createPhoneThunk(formData))
+    dispatch(createPhoneThunk(formData));
 
-    formikBag.resetForm()
-  }
+    formikBag.resetForm();
+  };
+
+  const getFieldClass = (name, formikProps) =>
+    classNames({
+      [styles.invalid]: formikProps.errors[name] && formikProps.touched[name],
+      [styles.valid]: !formikProps.errors[name] && formikProps.touched[name],
+    });
 
   const classes = {
     error: styles.error,
-    input: styles.input,
     valid: styles.valid,
-    invalid: styles.invalid
-  }
+    invalid: styles.invalid,
+  };
 
   return (
     <Formik
@@ -62,7 +60,10 @@ function PhoneForm () {
         <Form className={styles.form}>
           <div>
             <label>Model:</label>
-            <Field name='model' className={classes.input} />
+            <Field
+              name='model'
+              className={getFieldClass('model', formikProps)}
+            />
             <ErrorMessage
               name='model'
               component='div'
@@ -72,7 +73,11 @@ function PhoneForm () {
 
           <div>
             <label>Year:</label>
-            <Field name='year' type='number' className={classes.input} />
+            <Field
+              name='year'
+              type='number'
+              className={getFieldClass('year', formikProps)}
+            />
             <ErrorMessage
               name='year'
               component='div'
@@ -82,11 +87,15 @@ function PhoneForm () {
 
           <div>
             <label>RAM:</label>
-            <Field name='ram' as='select' className={classes.input}>
+            <Field
+              name='ram'
+              as='select'
+              className={getFieldClass('ram', formikProps)}
+            >
               <option value=''>Select RAM</option>
               {[4, 6, 8, 12, 16].map(ram => (
                 <option key={ram} value={ram}>
-                  {ram} GB
+                  {ram}GB
                 </option>
               ))}
             </Field>
@@ -99,7 +108,10 @@ function PhoneForm () {
 
           <div>
             <label>Processor:</label>
-            <Field name='processor' className={classes.input} />
+            <Field
+              name='processor'
+              className={getFieldClass('processor', formikProps)}
+            />
             <ErrorMessage
               name='processor'
               component='div'
@@ -113,7 +125,7 @@ function PhoneForm () {
               name='screenSize'
               type='number'
               step='0.1'
-              className={classes.input}
+              className={getFieldClass('screenSize', formikProps)}
             />
             <ErrorMessage
               name='screenSize'
@@ -123,10 +135,12 @@ function PhoneForm () {
           </div>
 
           <div>
-            {error && <div>!!!ERROR!!!</div>}
-            <RingLoader loading={isFetching} />
             <label>Brand:</label>
-            <Field name='brandId' as='select' className={classes.input}>
+            <Field
+              name='brandId'
+              as='select'
+              className={getFieldClass('brandId', formikProps)}
+            >
               <option value=''>Select Brand</option>
               {brands.map(brand => (
                 <option key={brand.id} value={brand.id}>
@@ -153,7 +167,7 @@ function PhoneForm () {
             <input
               type='file'
               name='phoneImage'
-              accept='image/jpeg,image/png'
+              accept='image/jpeg, image/png'
               onChange={e =>
                 formikProps.setFieldValue('phoneImage', e.target.files[0])
               }
@@ -169,7 +183,7 @@ function PhoneForm () {
         </Form>
       )}
     </Formik>
-  )
+  );
 }
 
-export default PhoneForm
+export default PhoneForm;

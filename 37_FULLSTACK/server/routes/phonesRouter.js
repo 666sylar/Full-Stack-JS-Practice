@@ -1,13 +1,13 @@
 const { Router } = require('express');
 const { phonesController } = require('../controllers');
-const { paginate, upload } = require('../middleware');
+const { upload } = require('../middleware');
 
 const phonesRouter = Router();
 
 phonesRouter
   .route('/')
   .post(upload.uploadPhoneImage, phonesController.createPhone)
-  .get(paginate.paginatePhones, phonesController.getPhones);
+  .get(phonesController.getPhones);
 
 phonesRouter
   .route('/:id')

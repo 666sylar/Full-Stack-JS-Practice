@@ -28,13 +28,9 @@ module.exports.createPhone = async (req, res, next) => {
 };
 
 module.exports.getPhones = async (req, res, next) => {
-  const { limit, offset } = req.pagination;
-
   try {
     const foundPhones = await Phone.findAll({
       attributes: { exclude: ['createdAt', 'updatedAt'] },
-      limit,
-      offset,
       order: ['id'],
       include: {
         model: Brand,

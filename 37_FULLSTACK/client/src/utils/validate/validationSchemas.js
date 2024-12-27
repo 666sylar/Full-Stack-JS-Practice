@@ -28,6 +28,11 @@ export const PHONE_VALIDATION_SCHEMA = yup.object({
     .required('Screen size is required')
     .min(4.0, 'Screen size must be at least 4.0 inches')
     .max(10.0, 'Screen size cannot exceed 10.0 inches'),
+  brandId: yup
+    .number()
+    .required('Brand is required')
+    .positive('Brand ID must be a positive number')
+    .integer('Brand ID must be an integer'),
   hasNFC: yup.boolean(),
   phoneImage: yup
     .mixed()

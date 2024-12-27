@@ -1,0 +1,59 @@
+@import "../../common/style/variable"
+
+ul
+  padding: 0 5rem
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-template-rows: auto
+  grid-gap: 1rem
+
+  .phone
+    padding: 1rem
+    display: flex
+    flex-direction: column
+    align-content: center
+    align-items: center
+    border: 0.1rem white solid
+    border-radius: 0.25rem
+    background-color: royalblue
+    position: relative
+
+    .imageWrapper
+      width: 13rem
+      height: 13rem
+      border: transparent
+      border-radius: 0.5rem
+      overflow: hidden
+      margin-bottom: 1rem
+
+      img
+        object-fit: cover
+        height: 13rem
+        width: 13rem
+
+    p
+      padding: 0
+      margin: 0.5rem
+
+    input[type=checkbox]
+      margin-left: 0.25rem
+      width: 0.75rem
+      height: 0.75rem
+
+      &:checked
+       accent-color: blueviolet
+
+    button
+      padding: 0.25rem 0.5rem
+      color: $text-color
+      background: transparent
+      border: 0.1rem white solid
+      border-radius: 0.25rem
+      position: absolute
+      top: 1rem
+      right: 1rem
+      cursor: pointer
+
+      &:hover
+        color: $bg-color
+        background-color: $text-color

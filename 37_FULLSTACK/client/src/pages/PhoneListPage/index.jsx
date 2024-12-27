@@ -1,5 +1,5 @@
-import PhonesList from '../../components/PhonesList/index.jsx'
-import styles from './PhoneListPage.module.sass'
+import PhonesList from '../../components/PhonesList/index.jsx';
+import styles from './PhoneListPage.module.sass';
 
 function PhoneListPage () {
   return (
@@ -7,7 +7,7 @@ function PhoneListPage () {
       <h1>Phones List</h1>
       <PhonesList />
     </main>
-  )
+  );
 }
 
-export default PhoneListPage
+export default PhoneListPage;

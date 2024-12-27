@@ -1,5 +1,5 @@
-import PhoneForm from '../../components/PhoneForm/index.jsx'
-import styles from './PhoneFormPage.module.sass'
+import PhoneForm from '../../components/PhoneForm/index.jsx';
+import styles from './PhoneFormPage.module.sass';
 
 function PhoneFormPage () {
   return (
@@ -7,7 +7,7 @@ function PhoneFormPage () {
       <h1>Phone Form</h1>
       <PhoneForm />
     </main>
-  )
+  );
 }
 
-export default PhoneFormPage
+export default PhoneFormPage;

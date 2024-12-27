@@ -1,8 +1,8 @@
-import styles from './Header.module.sass'
-import { Link, useLocation } from 'react-router-dom'
+import styles from './Header.module.sass';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <header className={styles.header}>
@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
       )}
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
