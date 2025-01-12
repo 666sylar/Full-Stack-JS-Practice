@@ -1,0 +1,21 @@
+{
+  "name": "40_mongodb_mongoose",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^8.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
